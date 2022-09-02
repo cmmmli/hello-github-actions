@@ -1,0 +1,12 @@
+name: release-please test
+on: push
+jobs:
+  check-test:
+    name: Git status check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "new file" > ./new.txt
+      - name: Check Uncommited Files
+        run: git status
