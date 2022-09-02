@@ -1,4 +1,4 @@
-name: release-please test
+name: check-git-status
 on: push
 jobs:
   check-test:
@@ -8,5 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           echo "new file" > ./new.txt
-      - name: Check Uncommited Files
-        run: git status
+      - name: Check no unstaged changes
+        run: git diff --exit-codes
+      - name: Check no uncommited changes
+        run: git diff --cached --exit-codes
