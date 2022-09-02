@@ -6,7 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          echo "new file" > ./new.txt
       - name: Check no uncommited changes
         run: git add . && git diff --cached --exit-code
