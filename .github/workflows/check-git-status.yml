@@ -8,9 +8,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           echo "new file" > ./new.txt
-      - name: pwd
-        run: pwd
-      - name: Check no unstaged changes
-        run: git diff --exit-code
       - name: Check no uncommited changes
-        run: git diff --cached --exit-code
+        run: git add . && git diff --cached --exit-code
